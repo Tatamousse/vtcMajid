@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTC Majid - Service de transport</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('bordeaux.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            background-color: rgba(0, 64, 128, 0.8); /* Bleu translucide */
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .contact-info {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+        .contact-info i {
+            font-style: normal;
+            background-color: #ff6600;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #ff6600; /* Orange */
+        }
+        .separator {
+            border-top: 2px solid #ccc;
+            margin: 30px 0;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #003366;
+        }
+        footer {
+            background-color: #ff6600; /* Orange */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VTC Majid</h1>
+        <p>Votre service de transport à Bordeaux et au-delà</p>
+        <div class="contact-info">
+            <i>📞</i><span>+33 6 12 34 56 78</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Section Description -->
+        <div class="section">
+            <h2>À propos de VTC Majid</h2>
+            <p>VTC Majid est votre service de transport fiable et confortable. Nous sommes disponibles pour tous vos déplacements à Bordeaux et au-delà.</p>
+            <ul>
+                <li><strong>Points forts :</strong> Disponibilité, confort</li>
+                <li><strong>Zone desservie :</strong> Bordeaux et transport longue distance</li>
+            </ul>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Section Photo de la voiture -->
+        <div class="section">
+            <h2>Votre voiture</h2>
+            <p>Notre véhicule est prêt à vous offrir une expérience de transport exceptionnelle.</p>
+            <img src="toyota.png" alt="Photo de la voiture" style="width: 100%; border-radius: 8px;">
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Formulaire de contact -->
+        <div class="section">
+            <h2>Contactez-nous</h2>
+            <form class="contact-form" id="contact-form">
+                <input type="text" name="name" id="name" placeholder="Votre nom" required>
+                <input type="email" name="email" id="email" placeholder="Votre email" required>
+                <input type="tel" name="phone" id="phone" placeholder="Votre numéro de téléphone" required>
+                <textarea name="message" id="message" placeholder="Votre message" rows="5" required></textarea>
+                <button type="button" onclick="sendEmail()">Envoyer</button>
+            </form>   
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+            <script>
+                (function(){
+                    emailjs.init("AwYR_jvfGuzzN2mYH"); // Remplacez par votre clé publique EmailJS
+                })();
+            
+                function sendEmail() {
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const message = document.getElementById('message').value;
+            
+                    if (!name || !email || !phone || !message) {
+                        alert("Veuillez remplir tous les champs.");
+                        return;
+                    }
+            
+                    emailjs.send("service_ogranzt", "template_q874jof", {
+                        from_name: name,
+                        to_name: "VTC Majid",
+                        email: email,
+                        phone: phone,
+                        message: message
+                    })
+                    .then((response) => {
+                        alert("Votre message a été envoyé avec succès !");
+                        console.log("SUCCESS", response);
+                    })
+                    .catch((error) => {
+                        alert("Une erreur s'est produite. Veuillez réessayer plus tard.");
+                        console.log("FAILED", error);
+                    });
+                }
+            </script>                         
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 VTC Majid. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
