@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Mon Chauffeur VTC{% endblock %}</title>
+  <link rel="stylesheet" href="../static/css/styles.css" />
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Mon Chauffeur VTC</a>
+
+      <button id="navToggle" aria-label="Ouvrir le menu">☰</button>
+
+      <nav id="mainNav" class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#vehicule">Véhicule</a>
+        <a href="#contact">Contact</a>
+        <a href="commande.html">Commander</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENU SPÉCIFIQUE À CHAQUE PAGE -->
+  <main id="content">
+    {% block content %}
+    <!-- Le contenu des pages viendra ici -->
+    {% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Mon Chauffeur VTC — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

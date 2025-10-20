@@ -1,0 +1,974 @@
+/* styles.css - complet */
+
+/* ========== THEME ========== */
+:root {
+  --primary: #7b1e3e; /* Bordeaux profond */
+  --primary-dark: #5a102b; 
+  --bg: #f5f0eb;      /* Beige pierre de Bordeaux */
+  --card: #ffffff;
+  --muted: #c0baba;
+  --text: #2e2e2e;
+  --text-muted: #6f6f6f;
+  --radius: 10px;
+  --container-width: 1100px;
+  --header-height: 68px;
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body{
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin:0;
+  padding:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ========== LAYOUT CONTAINERS ========== */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ========== HEADER / NAVBAR ========== */
+/* Navbar en bleu (ancienne couleur des boutons) */
+.site-header {
+  background: var(--primary);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+  position: fixed; /* <-- change sticky -> fixed */
+  top: 0;
+  left: 0;        /* nécessaire pour fixed */
+  width: 100%;    /* s'étend sur toute la largeur */
+  z-index: 1000;
+  color: #ffffff;
+}
+
+
+main {
+  padding-top: var(--header-height); /* décalage égal à la hauteur de la navbar */
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  position: relative; /* important for centering nav */
+  padding: 8px 16px;
+}
+
+/* LOGO (à gauche) */
+.brand {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff; /* texte blanc sur navbar bleue */
+  text-decoration: none;
+  margin-right: 16px;
+  z-index: 1200;
+}
+
+/* NAV centré horizontalement */
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+/* Nav links style
+   - texte blanc par défaut (lisible sur fond bleu)
+   - fond translucide léger pour les "boutons" de nav
+*/
+.nav a {
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 160ms ease;
+  display: inline-block;
+  line-height: 1;
+  border: none; /* <-- ici on supprime complètement le contour */
+}
+
+.nav a:hover,
+.nav a:focus {
+  color: var(--primary);
+  background: #ffffff;
+  border: 2px solid var(--primary-dark); /* contour visible seulement au hover */
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Active/current nav link
+   - fond blanc pour marquer la page active, texte bleu foncé
+*/
+.nav a.active {
+  color: var(--primary-dark);
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Right side area for actions (e.g. reserve button)
+   If used, keeps header balanced */
+.header-actions {
+  margin-left: auto;
+  z-index: 1200;
+}
+
+/* Mobile menu button: hidden on desktop, visible on small screens */
+#navToggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 1300;
+
+  /* --- corrections --- */
+  padding: 6px 10px;       /* réduit la zone cliquable trop large */
+  line-height: 1;
+  position: relative;
+  top: 4px;                /* descend légèrement le bouton */
+}
+
+/* ========== MAIN / CARD ========== */
+main { padding: 28px 0; min-height: calc(100vh - var(--header-height) - 120px); }
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+/* Hero layout */
+.hero {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* responsive image box */
+.hero .imgbox {
+  width: 320px;
+  max-width: 100%;
+  flex: 0 0 320px;
+}
+
+/* ========== BUTTONS ==========
+   Les boutons prennent la couleur de l'ancienne navbar (fond clair translucide),
+   texte bleu, bordure. Au hover ils deviennent bleus (inversion).
+*/
+button, .btn {
+  background: rgba(58,134,255,0.06); /* couleur claire / translucide (ancienne navbar) */
+  color: var(--primary);              /* texte bleu */
+  border: 1px solid rgba(58,134,255,0.12);
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 150ms ease;
+}
+
+button:hover, .btn:hover {
+  background: var(--primary);     /* bleu plein au survol */
+  color: #ffffff;                 /* texte blanc au survol */
+  transform: translateY(-1px);
+}
+
+/* Link-styled buttons */
+a.btn {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* ========== GALLERY ========== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.gallery img:hover,
+.gallery img:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  outline: none;
+}
+
+/* ========== FORM ========== */
+form {
+  display: block;
+  max-width: 1000px; /* <-- formulaire plus large */
+  margin: 0 auto;    /* reste centré */
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid var(--muted);
+  background: #fff;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* small helper text */
+.form-help {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* ========== FOOTER ========== */
+footer.site-footer {
+  margin-top: 40px;
+  padding: 18px 0;
+  background: transparent;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ========== LIGHTBOX STYLES ========== */
+.ltbx-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.ltbx-inner {
+  max-width: 95%;
+  max-height: 95%;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  background: transparent;
+}
+
+.ltbx-img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+.ltbx-close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== UTILS ========== */
+.text-muted { color: var(--text-muted); }
+.row { display:flex; gap:12px; flex-wrap:wrap; }
+.col { flex:1; min-width:180px; }
+
+/* ========== RESPONSIVE RULES ========== */
+@media (max-width: 1024px) {
+  .hero { gap: 16px; }
+  .hero .imgbox { flex-basis: 300px; }
+}
+
+@media (max-width: 768px) {
+  /* header adjustments */
+  #navToggle { display: block; margin-left: 12px; background: none; border: none; font-size: 1.6rem; cursor:pointer; color:#ffffff; }
+
+  /* center nav becomes dropdown */
+  .nav {
+    position: static;
+    transform: none;
+    display: none;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 12px;
+    background: var(--card);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+  .nav.show { display: flex; }
+
+  .nav a { display:block; padding: 12px 8px; border-bottom: 1px solid rgba(0,0,0,0.04); color: var(--primary); background: transparent; border: none; text-align: center; }
+  .nav a:last-child { border-bottom: none; }
+
+  /* push logo to left and show actions area on right if any */
+  .brand { margin-right: 0; }
+
+  /* hero becomes column */
+  .hero { flex-direction: column-reverse; align-items: stretch; }
+}
+
+/* small screens for forms and gallery */
+@media (max-width: 420px) {
+  .gallery img { height: 110px; }
+  .hero .imgbox { width:100%; flex-basis:auto; }
+}
+
+/* Bande image en haut pour réservation */
+.hero-header {
+  position: relative;
+  height: 420px; /* hauteur augmentée */
+  background: url('../../public/img/bordeaux.jpg') no-repeat center/cover;
+  display: flex; /* pour centrer verticalement */
+  align-items: center; /* centrage vertical */
+  justify-content: center; /* centrage horizontal */
+  margin-top: 0; /* aucun espace au-dessus */
+}
+
+.hero-header-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.45); /* filtre sombre */
+  z-index: 1; /* derrière le texte et les boutons */
+}
+
+.hero-header-inner {
+  position: relative;
+  z-index: 2; /* texte et boutons au-dessus du filtre */
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* espace entre titre et boutons */
+}
+
+.hero-header-inner h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Boutons comme navbar */
+.hero-header-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-header-buttons a {
+  /* copier exactement le style navbar */
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 160ms ease;
+  display: inline-block;
+  line-height: 1;
+  border: none;
+}
+
+.hero-header-buttons a:hover {
+  color: var(--primary);
+  background: #ffffff;
+  border: 2px solid var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.contact-section {
+  padding: 40px 0;
+}
+
+.contact-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Formulaire plus large et centré */
+#contactForm {
+  max-width: 1600px;  /* largeur maximale du formulaire */
+  width: 80%;        /* occupe toute la largeur disponible */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Ligne de champs avec plus d’espace entre colonnes */
+#contactForm .form-row {
+  display: flex;
+  gap: 40px;       /* espace horizontal entre champs */
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Groupe de champs */
+#contactForm .form-group {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+#contactForm .form-group.full-width {
+  flex: 1 1 100%;
+}
+
+#contactForm label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Effet focus sur les champs pour accentuer l'ombre */
+#contactForm input:focus,
+#contactForm textarea:focus {
+  outline: none;
+  border-bottom-color: var(--primary); /* bordure colorée au focus */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+}
+
+/* Textarea spécifique */
+#contactForm textarea {
+  resize: vertical; /* permet de redimensionner verticalement si nécessaire */
+  min-height: 120px; /* moins haut par défaut */
+}
+
+#contactForm .checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#contactForm .checkbox-group input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+}
+
+#contactForm button.btn {
+  display: block;
+  width: 100%;             /* occupe toute la largeur du formulaire */
+  margin: 20px 0 0 0;      /* espace au-dessus */
+  padding: 12px 24px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: var(--primary);      /* fond bleu */
+  color: #ffffff;                  /* texte blanc */
+  border: 1px solid var(--primary-dark);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+#contactForm button.btn:hover {
+  background: #ffffff;             /* fond blanc */
+  color: var(--primary);           /* texte bleu */
+  border: 1px solid var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #contactForm .form-row {
+    flex-direction: column;
+  }
+}
+
+/* Étoile rouge pour les champs obligatoires */
+#contactForm label.required::after {
+  content: " *";
+  color: red;
+}
+#contactForm .checkbox-group {
+  display: flex;
+  flex-direction: column; /* label principal au-dessus */
+  gap: 8px;
+}
+
+#contactForm .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#contactForm .checkbox-wrapper label {
+  font-weight: normal;
+  margin: 0;
+  color: var(--text);
+}
+
+/* Ligne contenant les 4 champs du haut */
+#contactForm .form-row.top-row .form-group {
+  flex: 1 1 calc(50% - 20px); /* 2 champs par ligne avec gap */
+  min-width: 220px;
+}
+
+/* Ligne pour le textarea et checkbox (largeur totale) */
+#contactForm .form-row.full-width-row .form-group {
+  flex: 1 1 100%;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 12px 16px;          
+  margin-top: 6px;
+  border: 1px solid transparent; /* contour invisible pour garder arrondi */
+  border-bottom: 1.5px solid #000; /* bordure uniquement en bas, couleur noire, plus fine */
+  border-radius: 8px;          
+  background: #fff;
+  font-size: 1rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* effet d’ombre subtil */
+}
+
+/* === SLIDESHOW (index.html) === */
+
+.slideshow {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+}
+
+/* SLIDESHOW - slide (remplacement pour éviter zoom) */
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  background-position: center center;
+  background-size: cover; /* rempli la zone sans stretch étrange */
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: none; /* plus de zoom */
+  transition: opacity 600ms ease; /* plus simple et propre */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.slideshow .slide.show {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.slideshow .slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.25));
+  z-index: 1;
+}
+
+.slide-caption {
+  position: relative;
+  z-index: 3;
+  margin: 20px;
+  max-width: 55%;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.25); /* ✅ Plus sombre pour lisibilité */
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: none; /* ✅ on peut supprimer la bordure si tu veux plus clean */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  animation: fadeSlideIn 0.8s ease both;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-caption h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.slide-caption p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* Controls (précédent / suivant) */
+.slideshow .controls {
+  position: absolute;
+  bottom: 20px;  /* 👈 En bas */
+  right: 20px;   /* 👈 Aligné à droite */
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.slideshow .controls button {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.slideshow .controls button:hover {
+  background: #fff;
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+/* Petits points */
+.slideshow .dots {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.slideshow .dot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.3);
+  transition: all 0.3s ease;
+}
+
+.slideshow .dot.active {
+  background: #fff;
+  transform: scale(1.4);
+  border-color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .slide-caption { max-width: 80%; margin: 16px; }
+  .slide-caption h2 { font-size: 1.3rem; }
+}
+@media (max-width: 480px) {
+  .slide-caption { padding: 10px 12px; margin: 12px; }
+  .slide-caption h2 { font-size: 1.05rem; }
+  .slide-caption p { font-size: 0.85rem; }
+}
+
+/* ----- Fix mobile hamburger + mobile nav sizing ----- */
+/* placer après les autres règles pour override */
+@media (max-width: 768px) {
+
+  /* Force le header-inner en position relative (si pas déjà) */
+  .header-inner { position: relative; }
+
+  /* Brand : éviter le wrapping excessif et réduire légèrement la taille si besoin */
+  .brand {
+    white-space: nowrap;        /* empêche le retour à la ligne */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;             /* laisse de la place pour le hamburger */
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /* Bouton hamburger : position absolute, aligné verticalement au centre et à droite */
+  #navToggle {
+    display: block !important;
+    position: absolute;
+    right: 12px;                /* distance depuis le bord droit */
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 6px 8px;           /* réduit la zone cliquable */
+    font-size: 1.4rem;          /* ajuste la taille de l'icône */
+    line-height: 1;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    border: none;
+    z-index: 1400;
+  }
+
+  /* Menu mobile : ne pas occuper 100% width, s'ouvrir sous l'en-tête aligné à droite */
+  .nav {
+    display: none; /* caché par défaut */
+    position: absolute;
+    top: calc(var(--header-height)); /* juste sous l'en-tête */
+    right: 12px;                    /* aligné avec le hamburger */
+    width: auto;
+    min-width: 180px;
+    max-width: calc(100% - 32px);   /* évite de dépasser l'écran */
+    padding: 8px 10px;
+    background: var(--card);
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1390;
+  }
+
+  /* Quand JS ajoute .show on l'affiche */
+  .nav.show { display: flex; }
+
+  /* Liens à l'intérieur */
+  .nav a {
+    display: block;
+    padding: 10px 12px;
+    text-align: left;
+    color: var(--primary);
+    background: transparent;
+    border: none;
+  }
+
+  /* Si le brand est toujours trop large, réduire encore */
+  @media (max-width: 420px) {
+    .brand { max-width: 55%; font-size: 0.95rem; }
+    #navToggle { right: 8px; }
+    .nav { right: 8px; max-width: calc(100% - 16px); }
+  }
+}
+
+/* ====== Features alternating blocks ====== */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 40px 0;
+}
+
+/* Chaque feature : conteneur flexible */
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  justify-content: space-between;
+  max-width: 1100px;   /* ← limite la largeur totale */
+  margin: 60px auto;   /* centre le bloc horizontalement */
+  padding: 20px;
+}
+
+/* Media (image) et content (texte) */
+.feature-media {
+  flex: 0 0 46%; /* image occupe ~46% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.10);
+  display: block;
+}
+
+/* Texte dans une "carte" */
+.feature-content {
+  background: #f9f7f4; /* ✅ Beige doux “pierre de Bordeaux” */
+  padding: 24px 28px;
+  border-radius: 16px;
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06); /* ✅ ombre subtile */
+  border: 1px solid rgba(0,0,0,0.03); /* ✅ bord fin pour démarquer sans dureté */
+}
+
+/* Titres */
+.feature-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark); /* ✅ Bordeaux foncé */
+}
+
+/* Paragraphes */
+.feature-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2e2e2e;
+}
+
+/* Forcer alternance image right / left visually:
+   On desktop we already wrote markup in alternating order.
+   But just in case, allow using nth-child to invert layout if needed. */
+/*.feature:nth-child(even) {
+  flex-direction: row-reverse;
+}*/
+
+/* Responsive: stack vertically under 860px */
+@media (max-width: 860px) {
+  .feature {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .feature-media {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .feature-media img {
+    border-radius: 12px;
+    max-height: 320px;
+    width: 100%;
+  }
+  .feature-content {
+    width: 100%;
+  }
+}
+
+/* Small screens: tighter padding */
+@media (max-width: 420px) {
+  .feature-content {
+    padding: 14px;
+    border-radius: 10px;
+  }
+  .feature-content h3 { font-size: 1.25rem; }
+}
+
+/* Pour inverser la disposition image/texte */
+.feature.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Mobile: forcer toutes les features à stack vertical même si .reverse */
+@media (max-width: 860px) {
+  .feature.reverse {
+    flex-direction: column;
+  }
+}
+
+/* ===== Mobile: texte au-dessus, image en dessous ===== */
+@media (max-width: 768px) {
+  /* Forcer l’empilement vertical */
+  .feature,
+  .feature.reverse,
+  .feature:nth-child(even) {
+    flex-direction: column !important; /* neutralise row-reverse */
+    align-items: stretch;
+  }
+
+  /* Forcer l’ordre : texte d’abord (1), image ensuite (2) */
+  .feature-content { order: 1; }
+  .feature-media   { order: 2; }
+
+  /* Un peu de respiration autour des images sur mobile */
+  .feature-media { margin-top: 10px; }
+}
+
+/* --- Ajustements pour téléphone : réduire l'espace entre le slideshow et le texte --- */
+@media (max-width: 768px) {
+  /* 1️⃣ Réduit un peu la hauteur du slideshow et retire tout espace dessous */
+  .slideshow {
+    height: 340px;       /* tu peux mettre 300px si tu veux plus compact */
+    margin-bottom: 0;    /* empêche un espace sous le diaporama */
+  }
+
+  /* 2️⃣ Réduit les marges de la section contenant les paragraphes */
+  .features {
+    padding-top: 12px;   /* avant : 40px → maintenant 12px */
+    padding-bottom: 24px;
+    margin-top: 0;       /* évite que le navigateur ajoute un vide */
+  }
+
+  /* 3️⃣ Réduit les marges autour de chaque paragraphe (article .feature) */
+  .feature {
+    margin: 16px auto;   /* avant : 60px → maintenant 16px */
+  }
+
+  /* 4️⃣ Supprime tout espace "fantôme" entre le slideshow et la 1re section */
+  .slideshow + .features {
+    margin-top: 0 !important;
+  }
+}
+
+/* Home: pas de hauteur minimale ni de padding bas qui créent un vide */
+main.home {
+  min-height: auto;
+  padding-bottom: 0;
+}
+
+/* Sur mobile, on s’assure qu’il n’y a vraiment aucun gap */
+@media (max-width: 768px) {
+  main.home { min-height: auto; padding-bottom: 0; }
+  .slideshow { margin-bottom: 0; }
+  .slideshow + .features { margin-top: 0; }
+}
+
+@media (max-width: 480px) {
+  .slideshow .controls button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+.feature {
+  align-items: stretch; /* ✅ les deux colonnes auront la même hauteur */
+}
+
+.feature-media {
+  height: 100%;
+}
+
+.feature-media img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}

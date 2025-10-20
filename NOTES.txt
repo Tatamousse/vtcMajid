@@ -1,0 +1,18 @@
+Préparer le contenu (textes, 6–12 photos optimisées, 1 vidéo YouTube si besoin, logo).
+
+Créer base.html (navigation, footer, CSS commun, meta responsive).
+
+Coder index.html (intro chauffeur, véhicule, rubriques touristiques, galerie).
+
+Coder commande.html (formulaire de commande VTC).
+
+JS : menu mobile, lightbox pour galerie, validation du formulaire.
+
+Choisir la méthode d’envoi : Formspree / EmailJS (rapide) ou Flask (plus flexible).
+
+Tests responsive (mobile/tablette/desktop), optimiser images (webp), lazy-loading.
+
+Déploiement (Netlify / Vercel pour site statique, ou Heroku / Render / Railway pour Flask).
+
+
+SLIDESHOW: ports et plages. Toutes distances. Aéroports. Gares. Tourisme. 

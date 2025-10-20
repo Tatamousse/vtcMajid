@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VTC Majid - Réserver</title>
+  <link rel="stylesheet" href="static/css/styles.css" />
+  <style>
+    /* Style pour l'étoile obligatoire */
+    .required::after {
+      content: " *";
+      color: red;
+    }
+    /* Style pour la case à cocher */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      flex-direction: column;
+    }
+    .checkbox-group label.checkbox-text {
+      margin-left: 0;
+      font-weight: normal;
+      color: var(--text);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">VTC Majid</a>
+      <button id="navToggle" aria-label="Ouvrir le menu">☰</button>
+      <nav id="mainNav" class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#vehicule">Véhicule</a>
+        <a href="#contact">Contact</a>
+        <a href="commande.html">Réserver</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENU DE COMMANDE.HTML -->
+  <main id="content">
+    <!-- Bande héro -->
+    <section class="hero-header">
+      <div class="hero-header-overlay"></div>
+      <div class="hero-header-inner container">
+        <h1>Réservez votre course</h1>
+        <div class="hero-header-buttons">
+          <a href="tel:0600000000">0600000000</a>
+          <a href="#contact">Formulaire de réservation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulaire de contact / réservation -->
+    <section id="contact" class="contact-section">
+      <h2>Contactez-nous</h2>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nom" class="required">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Nom" required>
+          </div>
+          <div class="form-group">
+            <label for="prenom" class="required">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email" class="required">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label for="telephone" class="required">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="Téléphone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label for="demande" class="required">Votre demande</label>
+            <textarea id="demande" name="demande" rows="6" placeholder="Merci de préciser le nombre de voyageurs, les dates, heures et lieu de départ, la destination, la taille des bagages et, si désiré, le besoin de sièges auto pour enfants en indiquant l'âge des enfants, pour faciliter le traitement de votre demande." required></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group checkbox-group">
+            <label class="required">Transmission des données</label>
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="transmission" name="transmission" required>
+              <label for="transmission">En cochant cette case, vous acceptez que vos données fournies soient utilisées pour le traitement de votre demande.</label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Mon Chauffeur VTC — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="../static/js/main.js"></script>
+</body>
+</html>

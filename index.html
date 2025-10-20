@@ -1,181 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="iRYOGN5jkwZAy36x0loCe7_j_kn_KuMwi46C_zBUJYY" />
-    <meta name="keywords" content="VTC Bordeaux, chauffeur privé Bordeaux, transport aéroport Bordeaux, Majid VTC, réservation VTC, chauffeur longue distance, VTC disponible, VTC pas cher Bordeaux, taxi alternatif, voiture avec chauffeur">
-    <meta name="description" content="VTC Majid à Bordeaux : chauffeur privé pour tous vos déplacements locaux et longue distance. Confort, ponctualité et professionnalisme.">
-    <title>VTC Majid - Service de transport</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('bordeaux.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #333;
-        }
-        header {
-            background-color: rgba(0, 64, 128, 0.8); /* Bleu translucide */
-            color: white;
-            text-align: center;
-            padding: 20px 10px;
-            position: relative;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .contact-info {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-        }
-        .contact-info i {
-            font-style: normal;
-            background-color: #ff6600;
-            color: white;
-            padding: 5px 8px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .section h2 {
-            color: #ff6600; /* Orange */
-        }
-        .separator {
-            border-top: 2px solid #ccc;
-            margin: 30px 0;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .contact-form input, .contact-form textarea, .contact-form button {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .contact-form button {
-            background-color: #004080;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .contact-form button:hover {
-            background-color: #003366;
-        }
-        footer {
-            background-color: #ff6600; /* Orange */
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MVTC Majid</title>
+  <link rel="stylesheet" href="static/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>VTC Majid</h1>
-        <p>Votre service de transport à Bordeaux et au-delà</p>
-        <div class="contact-info">
-            <i>📞</i><span>+33 7 58 14 26 48</span>
-            <i>@</i><span>majidmimo76@gmail.com</span>
-        </div>
-    </header>
+  <!-- HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">VTC Majid</a>
 
-    <div class="container">
-        <!-- Section Description -->
-        <div class="section">
-            <h2>À propos de VTC Majid</h2>
-            <p>VTC Majid est un service de transport privé fondé et géré par un seul homme passionné, 
-                MAIMOUNI CHAHLAL Majid. Titulaire d'un diplôme de VTC, et avec un dévouement sans égal et une expertise locale, 
-                il vous garantit des déplacements confortables, sécurisés et ponctuels à Bordeaux et ses environs.
-                 Que ce soit pour vos trajets du quotidien ou vos longues distances, VTC Majid s'engage à offrir une 
-                 expérience sur mesure, combinant disponibilité, convivialité et professionnalisme. Faites le choix 
-                 d'un service humain, où chaque trajet est réalisé avec soin et attention.</p>
-            <ul>
-                <li><strong>Points forts :</strong> Disponibilité, confort</li>
-                <li><strong>Zone desservie :</strong> Bordeaux et transport longue distance</li>
-            </ul>
-        </div>
+      <button id="navToggle" aria-label="Ouvrir le menu">☰</button>
 
-        <div class="separator"></div>
-
-        <!-- Section Photo de la voiture -->
-        <div class="section">
-            <h2>Votre voiture</h2>
-            <p>Découvrez la Toyota Prius+, une voiture à 7 places alliant modernité, confort et fiabilité. Avec son design élégant et son intérieur spacieux, elle est parfaitement équipée pour garantir des trajets agréables et sécurisés. Économique et respectueuse de l'environnement, cette voiture est idéale pour tous vos déplacements à Bordeaux et au-delà.</p>
-            <img src="toyota.png" alt="Photo de la voiture" style="width: 100%; border-radius: 8px;">
-        </div>
-
-        <div class="separator"></div>
-
-        <!-- Formulaire de contact -->
-        <div class="section">
-            <h2>Contactez-nous</h2>
-            <p>Vous pouvez nous contacter par téléphone (+33 7 58 14 26 48), par mail (majidmimo76@gmail.com), ou via le formulaire suivant:</p>
-            <form class="contact-form" id="contact-form">
-                <input type="text" name="name" id="name" placeholder="Votre nom" required>
-                <input type="email" name="email" id="email" placeholder="Votre email" required>
-                <input type="tel" name="phone" id="phone" placeholder="Votre numéro de téléphone" required>
-                <textarea name="message" id="message" placeholder="Votre message" rows="5" required></textarea>
-                <button type="button" onclick="sendEmail()">Envoyer</button>
-            </form>   
-            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-            <script>
-                (function(){
-                    emailjs.init("AwYR_jvfGuzzN2mYH"); // Remplacez par votre clé publique EmailJS
-                })();
-            
-                function sendEmail() {
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const phone = document.getElementById('phone').value;
-                    const message = document.getElementById('message').value;
-            
-                    if (!name || !email || !phone || !message) {
-                        alert("Veuillez remplir tous les champs.");
-                        return;
-                    }
-            
-                    emailjs.send("service_ogranzt", "template_q874jof", {
-                        from_name: name,
-                        to_name: "VTC Majid",
-                        email: email,
-                        phone: phone,
-                        message: message
-                    })
-                    .then((response) => {
-                        alert("Votre message a été envoyé avec succès !");
-                        console.log("SUCCESS", response);
-                    })
-                    .catch((error) => {
-                        alert("Une erreur s'est produite. Veuillez réessayer plus tard.");
-                        console.log("FAILED", error);
-                    });
-                }
-            </script>                         
-        </div>
+      <nav id="mainNav" class="nav">
+        <a href="index.html" class="active">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#vehicule">Véhicule</a>
+        <a href="#contact">Contact</a>
+        <a href="commande.html">Réserver</a>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2024 VTC Majid. Tous droits réservés.</p>
-    </footer>
+  <main id="content" class="home">
+    <!-- SLIDESHOW HERO -->
+    <section class="slideshow" id="heroSlideshow" aria-roledescription="carousel">
+      <div class="slide show" style="background-image:url('public/img/ports_plages.jpg');">
+        <div class="slide-caption">
+          <h2>Ports & Plages</h2>
+          <p>Nos services vous conduisent vers les ports et plages les plus prisés, dans un confort optimal.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image:url('public/img/toutes_distances.jpg');">
+        <div class="slide-caption">
+          <h2>Toutes distances</h2>
+          <p>Nous assurons vos trajets courte ou longue distance, partout en France et au-delà.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image:url('public/img/aeroports2.jpeg');">
+        <div class="slide-caption">
+          <h2>Aéroports</h2>
+          <p>Transferts rapides et ponctuels vers tous les aéroports de la région et du pays.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image:url('public/img/gares2.jpg');">
+        <div class="slide-caption">
+          <h2>Gares</h2>
+          <p>Nous vous déposons ou venons vous chercher directement à la gare, sans stress.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image:url('public/img/tourisme2.jpg');">
+        <div class="slide-caption">
+          <h2>Tourisme</h2>
+          <p>Découvrez les plus beaux sites touristiques avec nos chauffeurs professionnels.</p>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button id="prevSlide" aria-label="Précédent">‹</button>
+        <button id="nextSlide" aria-label="Suivant">›</button>
+      </div>
+
+      <!-- Dots -->
+      <div class="dots" aria-label="Indicateurs de diapos"></div>
+    </section>
+
+    <!-- ====== FEATURE SECTIONS (À propos / Véhicule / Contact) ====== -->
+    <section class="features">
+      <!-- 1 - À propos (image à droite) -->
+      <article class="feature" id="apropos">
+        <div class="feature-content">
+          <h3>À propos</h3>
+          <p>
+            VTC Majid est un service de transport privé fondé et géré par un seul homme passionné, MAIMOUNI CHAHLAL Majid. Titulaire d'un diplôme de VTC, et avec un dévouement sans égal et une expertise locale, il vous garantit des déplacements confortables, sécurisés et ponctuels à Bordeaux et ses environs. Que ce soit pour vos trajets du quotidien ou vos longues distances, VTC Majid s'engage à offrir une expérience sur mesure, combinant disponibilité, convivialité et professionnalisme. Faites le choix d'un service humain, où chaque trajet est réalisé avec soin et attention.
+          </p>
+        </div>
+        <div class="feature-media">
+          <img src="public/img/about.jpg" alt="À propos - service chauffeur VTC">
+        </div>
+      </article>
+
+      <!-- 2 - Véhicule (image à gauche sur desktop) -->
+      <section id="vehicule" class="feature reverse">
+        <div class="feature-content">
+          <h2>Notre Véhicule</h2>
+          <p>
+            Découvrez la Toyota Prius+, une voiture à 7 places alliant modernité, confort et fiabilité. Avec son design élégant et son intérieur spacieux, elle est parfaitement équipée pour garantir des trajets agréables et sécurisés. Économique et respectueuse de l'environnement, cette voiture est idéale pour tous vos déplacements à Bordeaux et au-delà.
+          </p>
+        </div>
+        <div class="feature-media">
+          <img src="public/img/toyota.png" alt="Notre véhicule VTC">
+        </div>
+      </section>
+
+      <!-- 3 - Contact (image à droite) -->
+      <article class="feature" id="contact">
+        <div class="feature-content">
+          <h3>Contact</h3>
+          <p>
+            Réservez par téléphone, via notre formulaire ou suivez-nous sur les réseaux. Disponibilité 7j/7.
+            Pour les demandes spéciales (bagages volumineux, animaux), précisez lors de la réservation.
+            Vous pouvez également nous contacter par téléphone en appelant le 0600000000, ou par WhatsApp sur le même numéro.
+          </p>
+        </div>
+        <div class="feature-media">
+          <img src="public/img/contact.png" alt="Contact - réservation et téléphone">
+        </div>
+      </article>
+    </section>
+    <!-- ============================ -->
+  </main>
+
+  <script>
+    // JS simple pour le slideshow
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('.dots');
+    let current = 0;
+    let timer;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => showSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides[current].classList.remove('show');
+      dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('show');
+      dots[current].classList.add('active');
+      resetTimer();
+    }
+
+    function nextSlide() {
+      showSlide(current + 1);
+    }
+
+    function prevSlide() {
+      showSlide(current - 1);
+    }
+
+    document.getElementById('nextSlide').addEventListener('click', nextSlide);
+    document.getElementById('prevSlide').addEventListener('click', prevSlide);
+
+    function startTimer() {
+      timer = setInterval(nextSlide, 5000);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      startTimer();
+    }
+
+    startTimer();
+  </script>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Mon Chauffeur VTC — Tous droits réservés</p>
+    </div>
+  </footer>
+  <script src="static/js/main.js"></script>
 </body>
 </html>
