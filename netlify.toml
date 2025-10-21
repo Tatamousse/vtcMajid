@@ -1,13 +1,22 @@
 # netlify.toml
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "/public/sitemap.xml"
-  status = 200
-  force = true
 
-[[redirects]]
-  from = "/robots.txt"
-  to = "/public/robots.txt"
-  status = 200
-  force = true
+[build]
+  publish = "."  # ton site est à la racine
+  command = ""   # aucun build nécessaire pour un site HTML statique
+
+[[plugins]]
+  package = "netlify-plugin-sitemap"
+
+  [plugins.inputs]
+  prettyURLs = true
+  exclude = ["/404.html"]
+
+[[plugins]]
+  package = "netlify-plugin-robots-txt"
+
+  [plugins.inputs]
+  policy = [
+    { userAgent = "*", allow = "/" }
+  ]
+  sitemap = "https://vtc-majid.netlify.app/sitemap.xml"
 
