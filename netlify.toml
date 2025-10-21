@@ -1,0 +1,13 @@
+# netlify.toml
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/public/sitemap.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/public/robots.txt"
+  status = 200
+  force = true
+
