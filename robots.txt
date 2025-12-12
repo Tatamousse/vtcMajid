@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tatamousse.github.io/vtcMajid/sitemap.xml
