@@ -981,3 +981,9 @@ main.home {
   clip: rect(0,0,0,0);
   white-space: nowrap;
 }
+
+@media (min-width: 769px) {
+  #navToggle {
+    display: none !important;
+  }
+}
