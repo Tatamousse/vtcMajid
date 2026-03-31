@@ -129,7 +129,7 @@ main {
 
 /* Mobile menu button: hidden on desktop, visible on small screens */
 #navToggle {
-  display: block;
+  display: none;
   background: none;
   border: none;
   font-size: 1.8rem;
