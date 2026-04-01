@@ -94,26 +94,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- FORM EMAILJS ---------- */
-  emailjs.init('AwYR_jvfGuzzN2mYH'); // <- ta public key EmailJS
-
+  /* ---------- FORM WEB3FORMS ---------- */
   const form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
-        
+
       const submitBtn = form.querySelector('button[type="submit"]');
       if (submitBtn) submitBtn.disabled = true;
-        
-      emailjs.sendForm('service_ogranzt', 'template_q874jof', this)
-        .then(function () {
+
+      const formData = new FormData(form);
+      formData.append('access_key', 'f110037c-4d80-47a0-8cdf-43ab549de510');
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+
+        if (data.success) {
           alert("Votre demande a été envoyée avec succès !");
           form.reset();
-          if (submitBtn) submitBtn.disabled = false;
-        }, function (error) {
-          alert("Erreur lors de l'envoi : " + JSON.stringify(error));
-          if (submitBtn) submitBtn.disabled = false;
-        });
+        } else {
+          alert("Erreur lors de l'envoi : " + data.message);
+        }
+      } catch (error) {
+        alert("Erreur lors de l'envoi, veuillez réessayer.");
+      }
+
+      if (submitBtn) submitBtn.disabled = false;
     });
   }
 });
